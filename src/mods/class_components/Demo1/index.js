@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 
-export default class Demo1 extends Component {
+export default class Demo1 extends PureComponent {
 
     state = {
         count: 0,
@@ -9,8 +9,8 @@ export default class Demo1 extends Component {
     }
 
     componentDidUpdate() {
-        console.log(`----update--- ${JSON.stringify(this.state.obj)}`);
-        console.log(`----update--- ${JSON.stringify(this.state.list)}`);
+        // console.log(`----update--- ${JSON.stringify(this.state.obj)}`);
+        // console.log(`----update--- ${JSON.stringify(this.state.list)}`);
     }
 
     addHandle = () => {
@@ -44,10 +44,8 @@ export default class Demo1 extends Component {
 
     setArrayHandle = () => {
         const newList = this.state.list;
-        // const newList = Array.from(this.state.list);
         console.log(newList === this.state.list);
         console.log(`---before--- ${this.state.list}`);
-        // newList.push(Math.floor(Math.random() * 10));
         this.state.list[0] = Math.floor(Math.random() * 10);
         this.setState({
             list: this.state.list
@@ -60,7 +58,6 @@ export default class Demo1 extends Component {
         const newObj = this.state.obj;
         console.log(newObj === this.state.obj);
         console.log(`---before--- ${JSON.stringify(this.state.obj)}`);
-        // newObj.name = Math.floor(Math.random() * 10);
         this.state.obj.name = Math.floor(Math.random() * 10);
         this.setState({ obj: this.state.obj });
         console.log(`---after--- ${JSON.stringify(this.state.obj)}`);

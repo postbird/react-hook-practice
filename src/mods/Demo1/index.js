@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 
 export default (props = {}) => {
+
     const [count, setCount] = useState(0);
     const [list, setList] = useState([]);
     const [obj, setObj] = useState({});
@@ -19,9 +20,8 @@ export default (props = {}) => {
         }, 1000);
     }
     const addHandleTimeout2 = () => {
-        console.log(`----timeout count ---- ${count}`)
+        console.log(`----timeout count ---- ${count}`);
         setCount(count + 1);
-
         setTimeout(() => {
             console.log(`----count---- ${count}`);
         }, 2000);
@@ -34,19 +34,14 @@ export default (props = {}) => {
         console.log(`---before--- ${list}`);
         newList[0] = Math.floor(Math.random() * 10);
         setList(newList);
-        console.log(`---after--- ${list}`);
     }
 
     const setObjectHandle = () => {
         const newObj = obj;
         // const newObj = Object.assign({}, obj);
         console.log(newObj === obj);
-        console.log(`---before--- ${JSON.stringify(obj)}`);
         newObj.name = Math.floor(Math.random() * 10);
-        setObj((prevObj) => {
-            console.log(`---setting--- ${JSON.stringify(prevObj)}`);
-            return newObj;
-        });
+        setObj(newObj);
         console.log(`---after--- ${JSON.stringify(obj)}`);
     }
 
@@ -57,7 +52,7 @@ export default (props = {}) => {
     useEffect(() => {
         console.log(`----effect--- ${JSON.stringify(list)}`);
     }, [list]);
-    
+
     return (
         <div>
             <h2>function component</h2>
