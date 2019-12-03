@@ -1,7 +1,6 @@
 import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
-import Demo1 from './mods/Demo2';
+import Demo1 from './mods/Demo3';
 
 function App() {
   return (
