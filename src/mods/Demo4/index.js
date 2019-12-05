@@ -15,21 +15,21 @@ const reducer = (state, action) => {
 }
 
 export default (props = {}) => {
-const initialState = {
-    count: 0,
-    step: 1
-}
-const [state, dispatch] = useReducer(reducer, initialState);
-const { count, step } = state;
+    const initialState = {
+        count: 0,
+        step: 1
+    }
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const { count, step } = state;
 
-useEffect(() => {
-    console.log('render useEffect')
-    const id = setInterval(() => {
-        dispatch({ type: 'increment' });
-        console.log(`[] count is ${state.count}, step is ${state.step}`);
-    }, 1000);
-    return () => clearInterval(id);
-}, []);
+    useEffect(() => {
+        console.log('render useEffect')
+        const id = setInterval(() => {
+            dispatch({ type: 'increment' });
+            console.log(`[] count is ${state.count}, step is ${state.step}`);
+        }, 1000);
+        return () => clearInterval(id);
+    }, []);
 
     useEffect(() => {
         console.log(`[change] count is ${count}`);
