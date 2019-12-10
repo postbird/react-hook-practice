@@ -1,5 +1,6 @@
 import React, { useState, } from 'react';
 import Child from './Child';
+import ChildUseMemo from './Child-useMemo';
 import ChildMemo from './Child-memo';
 
 export default (props = {}) => {
@@ -27,7 +28,8 @@ export default (props = {}) => {
             <button onClick={handleCalNumber}>numberis : {number} </button>
             <hr />
             <Child step={step} count={count} number={number} /> <hr />
-            <ChildMemo step={step} count={count} number={number} />
+            <ChildMemo step={step} count={count} number={number} /><hr />
+            <ChildUseMemo step={step} count={count} number={number} />
         </div>
     );
 }
